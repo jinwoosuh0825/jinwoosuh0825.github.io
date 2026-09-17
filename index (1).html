@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Jinwoo Suh — Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF8;
+    --bg-2:#F1EFEA;
+    --text:#1A1B18;
+    --text-soft:#5B5E57;
+    --accent:#5C6F52;
+    --line:#DEDACF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14161A;
+      --bg-2:#1C1F24;
+      --text:#EDEDE8;
+      --text-soft:#9CA0A0;
+      --accent:#8FAE7E;
+      --line:#2B2E33;
+    }
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
+
+  /* ---- nav ---- */
+  nav{
+    padding:24px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:760px;
+    margin:0 auto;
+    padding-left:24px;
+    padding-right:24px;
+    font-size:14px;
+  }
+  nav .mark{ font-weight:600; }
+  nav ul{ display:flex; gap:20px; list-style:none; color:var(--text-soft); }
+  nav a:hover{ color:var(--accent); }
+
+  /* ---- hero ---- */
+  .hero{
+    padding:20px 0 48px;
+    display:grid;
+    grid-template-columns: 132px 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .avatar{
+    width:132px; height:132px;
+    border-radius:6px;
+    background:var(--bg-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Newsreader',serif;
+    font-size:44px;
+    color:var(--text-soft);
+    overflow:hidden;
+  }
+  .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .hero h1{
+    font-family:'Newsreader',serif;
+    font-weight:500;
+    font-size:32px;
+    letter-spacing:-0.01em;
+  }
+
+  .tags{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--accent);
+  }
+  .tags span::after{ content:'/'; margin-left:8px; color:var(--line); }
+  .tags span:last-child::after{ content:''; }
+
+  .affil{
+    margin-top:12px;
+    font-size:14px;
+    color:var(--text-soft);
+  }
+
+  .bio{
+    margin-top:14px;
+    max-width:56ch;
+    color:var(--text);
+  }
+  .bio p + p{ margin-top:10px; }
+
+  .link-row{
+    margin-top:16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    font-size:14px;
+  }
+  .link-row a{
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+  .link-row a:hover{ border-color:var(--accent); color:var(--accent); }
+
+  .meta-row{
+    margin-top:10px;
+    display:flex;
+    gap:14px;
+    font-size:13px;
+    color:var(--text-soft);
+  }
+
+  /* ---- sections ---- */
+  section{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+  }
+  section h2{
+    font-family:'Newsreader',serif;
+    font-weight:500;
+    font-size:20px;
+    margin-bottom:24px;
+  }
+
+  /* ---- entry (publication / project) ---- */
+  .entry{
+    display:grid;
+    grid-template-columns: 148px 1fr;
+    gap:20px;
+    margin-bottom:28px;
+  }
+  .entry:last-child{ margin-bottom:0; }
+  .entry-media{
+    width:148px;
+    aspect-ratio: 4/3;
+    background:var(--bg-2);
+    border-radius:4px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-soft);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-align:center;
+    padding:8px;
+  }
+  .entry-media img, .entry-media video{ width:100%; height:100%; object-fit:cover; }
+  .entry-year{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--text-soft);
+    margin-bottom:6px;
+  }
+  .entry-title{
+    font-size:16px;
+    font-weight:500;
+    line-height:1.4;
+  }
+  .entry-authors{
+    margin-top:4px;
+    font-size:14px;
+    color:var(--text-soft);
+  }
+  .entry-authors b{ color:var(--text); font-weight:600; }
+  .entry-venue{
+    margin-top:4px;
+    font-size:13px;
+    color:var(--text-soft);
+    font-style:italic;
+  }
+  .entry-desc{
+    margin-top:6px;
+    font-size:14px;
+    color:var(--text-soft);
+  }
+  .entry-tags{
+    margin-top:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--accent);
+  }
+  .entry-links{
+    margin-top:8px;
+    display:flex;
+    gap:12px;
+    font-size:13px;
+  }
+  .entry-links a{ border-bottom:1px solid var(--line); }
+  .entry-links a:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* ---- experience timeline ---- */
+  .tl-item{
+    display:grid;
+    grid-template-columns: 148px 1fr;
+    gap:20px;
+    margin-bottom:22px;
+  }
+  .tl-item:last-child{ margin-bottom:0; }
+  .tl-period{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--text-soft);
+    padding-top:2px;
+  }
+  .tl-role{ font-size:15px; font-weight:600; }
+  .tl-org{ font-size:14px; color:var(--text-soft); margin-top:2px; }
+  .tl-desc{ font-size:14px; color:var(--text-soft); margin-top:6px; }
+
+  footer{
+    padding:32px 0 48px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--text-soft);
+  }
+
+  @media (max-width: 600px){
+    .hero{ grid-template-columns:1fr; }
+    .avatar{ width:96px; height:96px; font-size:32px; }
+    .entry, .tl-item{ grid-template-columns:1fr; }
+    .entry-media{ width:100%; aspect-ratio:16/9; }
+    nav ul{ gap:12px; font-size:13px; }
+  }
+
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <!-- ✏️ 이름 -->
+  <span class="mark">Jinwoo Suh</span>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <!-- ✏️ CV 파일 링크 -->
+    <li><a href="./cv.pdf">CV</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <section id="home" class="hero" style="border-top:none;">
+    <!-- ✏️ 프로필 사진: img src를 본인 사진으로 교체하고, 없으면 아래 이니셜(HG)만 남겨도 됩니다 -->
+    <div class="avatar"><img src="profile.jpg" alt="Jinwoo Suh"></div>
+
+    <div>
+      <!-- ✏️ 이름 -->
+      <h1>Jinwoo Suh</h1>
+
+      <!-- ✏️ 관심 분야 키워드 -->
+      <div class="tags">
+        <span>Robot Learning</span>
+        <span>Humanoid</span>
+        <span>Locomotion</span>
+        <span>Manipulation</span>
+        <span>Whole-Body Control</span>
+      </div>
+
+      <!-- ✏️ 소속/학년 -->
+      <p class="affil">B.S. Student, School of Mechanical Engineering · Yonsei University</p>
+
+      <div class="bio">
+        <!-- ✏️ 자기소개 -->
+        <p>Hi, I'm a third-year undergraduate in Mechanical Engineering at Yonsei University. My research interests lie in robot learning, with a current focus on humanoid locomotion, manipulation, and whole-body control.</p>
+        <p>I'm currently an undergraduate research intern at the RoPhi (Robotics and Physical AI) Lab at Yonsei University, advised by Prof. Yonghyeon Lee. I previously worked as an undergraduate research intern at the <a href="https://mlcs.yonsei.ac.kr/" target="_blank" rel="noopener">Machine Learning and Control Systems Laboratory (MLCS)</a>.</p>
+      </div>
+
+      <!-- ✏️ 링크: 실제 주소로 교체 -->
+      <div class="link-row">
+        <a href="mailto:jinuseo08@gmail.com">Email</a>
+        <a href="https://github.com/jinwoosuh0825" target="_blank" rel="noopener">GitHub</a>
+        <a href="./cv.pdf">CV</a>
+        <a href="https://www.linkedin.com/in/jinwoo-suh-270711345/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+      <div class="meta-row">
+        <span>Seoul, Korea</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <div class="entry">
+      <div class="entry-media">figure / thumbnail</div>
+      <div>
+        <div class="entry-year">2026</div>
+        <div class="entry-title">CoHuB: A Collaborative Humanoid Loco-Manipulation Benchmark</div>
+        <div class="entry-authors">Hyunjin Park, Jebeom Chae, Minwoo Park, Soochul Yoo, <b>Jinwoo Suh</b>, Sunghyun Park, Sarmad Idrees, Jongeun Choi</div>
+        <div class="entry-venue">Under Review, 8th Robot Learning Workshop, NeurIPS 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Selected Projects</h2>
+
+    <!-- ✏️ 프로젝트 1 -->
+    <div class="entry">
+      <div class="entry-media">image / video</div>
+      <div>
+        <div class="entry-title">프로젝트 이름</div>
+        <p class="entry-desc">프로젝트에 대한 한두 줄 설명을 적어주세요. 무엇을 만들었고 어떤 역할을 했는지 위주로 씁니다.</p>
+        <div class="entry-tags">Python · PyTorch · ROS 2</div>
+        <div class="entry-links">
+          <a href="#">Code</a>
+          <a href="#">Project page</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✏️ 프로젝트 2 -->
+    <div class="entry">
+      <div class="entry-media">image / video</div>
+      <div>
+        <div class="entry-title">프로젝트 이름 2</div>
+        <p class="entry-desc">두 번째 프로젝트 설명입니다.</p>
+        <div class="entry-tags">C++ · OpenCV</div>
+        <div class="entry-links">
+          <a href="#">Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Research Experience</h2>
+
+    <div class="tl-item">
+      <div class="tl-period">Fall 2026 — Present</div>
+      <div>
+        <div class="tl-role">Undergraduate Research Intern</div>
+        <div class="tl-org">RoPhi (Robotics and Physical AI) Lab · Yonsei University</div>
+        <p class="tl-desc">Advisor: Prof. Yonghyeon Lee</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Jun. 2026 — Sep. 2026</div>
+      <div>
+        <div class="tl-role">Undergraduate Research Intern</div>
+        <div class="tl-org">Machine Learning and Control Systems Laboratory (MLCS) · Yonsei University</div>
+        <p class="tl-desc">Advisor: Prof. Jongeun Choi</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="wrap">
+  &copy; 2026 Jinwoo Suh
+</footer>
+
+</body>
+</html>
