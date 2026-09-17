@@ -16,6 +16,7 @@
     --text-soft:#5B5E57;
     --accent:#5C6F52;
     --line:#DEDACF;
+    --link:#2B5FA8;
   }
   @media (prefers-color-scheme: dark){
     :root{
@@ -25,6 +26,7 @@
       --text-soft:#9CA0A0;
       --accent:#8FAE7E;
       --line:#2B2E33;
+      --link:#7AA6E8;
     }
   }
 
@@ -113,6 +115,8 @@
     color:var(--text);
   }
   .bio p + p{ margin-top:10px; }
+  .lab-link{ color:var(--link); border-bottom:1px solid transparent; }
+  .lab-link:hover{ border-bottom-color:var(--link); }
 
   .link-row{
     margin-top:16px;
@@ -175,7 +179,16 @@
   .project-feature{ grid-template-columns: 1fr; }
   .project-feature .entry-media{
     width:100%;
-    aspect-ratio: 16/9;
+    height:auto;
+    aspect-ratio:auto;
+    background:none;
+    padding:0;
+  }
+  .project-feature .entry-media video{
+    width:100%;
+    height:auto;
+    object-fit:initial;
+    display:block;
   }
   .entry-year{
     font-family:'IBM Plex Mono',monospace;
@@ -236,8 +249,6 @@
   }
   .tl-role{ font-size:15px; font-weight:600; }
   .tl-org{ font-size:14px; color:var(--text-soft); margin-top:2px; }
-  .tl-org a{ border-bottom:1px solid var(--line); }
-  .tl-org a:hover{ border-color:var(--accent); color:var(--accent); }
   .tl-desc{ font-size:14px; color:var(--text-soft); margin-top:6px; }
 
   footer{
@@ -252,6 +263,7 @@
     .avatar{ width:96px; height:96px; font-size:32px; }
     .entry, .tl-item{ grid-template-columns:1fr; }
     .entry-media{ width:100%; aspect-ratio:16/9; }
+    .project-feature .entry-media{ aspect-ratio:auto; }
     nav ul{ gap:12px; font-size:13px; }
   }
 
@@ -290,7 +302,7 @@
 
       <div class="bio">
         <p>Hi, I'm a third-year undergraduate in Mechanical Engineering at Yonsei University. My research interests lie in robot learning, with a current focus on humanoid locomotion, manipulation, and whole-body control.</p>
-        <p>I'm currently an undergraduate research intern at the <a href="https://rophi-lab.github.io/" target="_blank" rel="noopener">RoPhi (Robotics and Physical AI) Lab</a> at Yonsei University, advised by Prof. Yonghyeon Lee. I previously worked as an undergraduate research intern at the <a href="https://mlcs.yonsei.ac.kr/" target="_blank" rel="noopener">Machine Learning and Control Systems Laboratory (MLCS)</a>.</p>
+        <p>I'm currently an undergraduate research intern at the <a class="lab-link" href="https://rophi-lab.github.io/" target="_blank" rel="noopener">RoPhi (Robotics and Physical AI) Lab</a> at Yonsei University, advised by Prof. Yonghyeon Lee. I previously worked as an undergraduate research intern at the <a class="lab-link" href="https://mlcs.yonsei.ac.kr/" target="_blank" rel="noopener">Machine Learning and Control Systems Laboratory (MLCS)</a>.</p>
       </div>
 
       <div class="link-row">
@@ -340,7 +352,7 @@
       <div class="tl-period">Sep. 2026 — Present</div>
       <div>
         <div class="tl-role">Undergraduate Research Intern</div>
-        <div class="tl-org"><a href="https://rophi-lab.github.io/" target="_blank" rel="noopener">RoPhi (Robotics and Physical AI) Lab</a> · Yonsei University</div>
+        <div class="tl-org"><a class="lab-link" href="https://rophi-lab.github.io/" target="_blank" rel="noopener">RoPhi (Robotics and Physical AI) Lab</a> · Yonsei University</div>
         <p class="tl-desc">Advisor: Prof. Yonghyeon Lee</p>
       </div>
     </div>
@@ -348,7 +360,7 @@
       <div class="tl-period">Jun. 2026 — Sep. 2026</div>
       <div>
         <div class="tl-role">Undergraduate Research Intern</div>
-        <div class="tl-org"><a href="https://mlcs.yonsei.ac.kr/" target="_blank" rel="noopener">Machine Learning and Control Systems Laboratory (MLCS)</a> · Yonsei University</div>
+        <div class="tl-org"><a class="lab-link" href="https://mlcs.yonsei.ac.kr/" target="_blank" rel="noopener">Machine Learning and Control Systems Laboratory (MLCS)</a> · Yonsei University</div>
         <p class="tl-desc">Advisor: Prof. Jongeun Choi</p>
       </div>
     </div>
