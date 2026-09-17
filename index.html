@@ -80,7 +80,7 @@
     color:var(--text-soft);
     overflow:hidden;
   }
-  .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .avatar img{ width:100%; height:100%; object-fit:cover; object-position: center 20%; display:block; }
 
   .hero h1{
     font-family:'Newsreader',serif;
@@ -253,13 +253,11 @@
 <body>
 
 <nav>
-  <!-- ✏️ 이름 -->
   <span class="mark">Jinwoo Suh</span>
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#projects">Projects</a></li>
-    <!-- ✏️ CV 파일 링크 -->
     <li><a href="./cv.pdf">CV</a></li>
   </ul>
 </nav>
@@ -267,14 +265,11 @@
 <div class="wrap">
 
   <section id="home" class="hero" style="border-top:none;">
-    <!-- ✏️ 프로필 사진: img src를 본인 사진으로 교체하고, 없으면 아래 이니셜(HG)만 남겨도 됩니다 -->
     <div class="avatar"><img src="profile.jpg" alt="Jinwoo Suh"></div>
 
     <div>
-      <!-- ✏️ 이름 -->
       <h1>Jinwoo Suh</h1>
 
-      <!-- ✏️ 관심 분야 키워드 -->
       <div class="tags">
         <span>Robot Learning</span>
         <span>Humanoid</span>
@@ -283,16 +278,13 @@
         <span>Whole-Body Control</span>
       </div>
 
-      <!-- ✏️ 소속/학년 -->
       <p class="affil">B.S. Student, School of Mechanical Engineering · Yonsei University</p>
 
       <div class="bio">
-        <!-- ✏️ 자기소개 -->
         <p>Hi, I'm a third-year undergraduate in Mechanical Engineering at Yonsei University. My research interests lie in robot learning, with a current focus on humanoid locomotion, manipulation, and whole-body control.</p>
         <p>I'm currently an undergraduate research intern at the RoPhi (Robotics and Physical AI) Lab at Yonsei University, advised by Prof. Yonghyeon Lee. I previously worked as an undergraduate research intern at the <a href="https://mlcs.yonsei.ac.kr/" target="_blank" rel="noopener">Machine Learning and Control Systems Laboratory (MLCS)</a>.</p>
       </div>
 
-      <!-- ✏️ 링크: 실제 주소로 교체 -->
       <div class="link-row">
         <a href="mailto:jinuseo08@gmail.com">Email</a>
         <a href="https://github.com/jinwoosuh0825" target="_blank" rel="noopener">GitHub</a>
@@ -310,7 +302,7 @@
     <h2>Publications</h2>
 
     <div class="entry">
-      <div class="entry-media">figure / thumbnail</div>
+      <div class="entry-media"><img src="cohub_thumb.png" alt="CoHuB benchmark overview"></div>
       <div>
         <div class="entry-year">2026</div>
         <div class="entry-title">CoHuB: A Collaborative Humanoid Loco-Manipulation Benchmark</div>
@@ -323,7 +315,6 @@
   <section id="projects">
     <h2>Selected Projects</h2>
 
-    <!-- ✏️ 프로젝트 1 -->
     <div class="entry">
       <div class="entry-media">image / video</div>
       <div>
@@ -337,7 +328,6 @@
       </div>
     </div>
 
-    <!-- ✏️ 프로젝트 2 -->
     <div class="entry">
       <div class="entry-media">image / video</div>
       <div>
@@ -355,7 +345,7 @@
     <h2>Research Experience</h2>
 
     <div class="tl-item">
-      <div class="tl-period">Fall 2026 — Present</div>
+      <div class="tl-period">Sep. 2026 — Present</div>
       <div>
         <div class="tl-role">Undergraduate Research Intern</div>
         <div class="tl-org">RoPhi (Robotics and Physical AI) Lab · Yonsei University</div>
